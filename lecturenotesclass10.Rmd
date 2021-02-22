@@ -1,7 +1,7 @@
 ---
 title: "Introduction to probability"
-author: ""
-date: ""
+author: "Mac Hester"
+date: "Feb. 22 2021"
 output: html_document
 editor_options: 
   chunk_output_type: console
