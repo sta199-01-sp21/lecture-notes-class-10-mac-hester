@@ -50,16 +50,26 @@ xtabs(~ Treatment + Improved, data = Arthritis) %>%
 
 - How many patients were enrolled in the clinical trial?
 
+84 people
+
 - What is the probability a randomly selected patient received the placebo?
+
+~ 52%
 
 - What is the probability a randomly selected patient received the placebo
   and had a marked improvement?
   
+7/84
+  
 - What is the probability a randomly selected patient received the placebo
   and the treatment?
   
+0%
+  
 - What is the probability a randomly selected patient had some improvement or
   was on the treatment?
+  
+48/84
 
 ## Using computer simulations to calculate probabilities
 
@@ -75,6 +85,8 @@ marbles <- c("red", "red", "white", "red", "blue", "blue", "red", "blue")
 Suppose we draw a single marble from our imaginary box, where all the marbles
 are equally likely to be selected. What is the probability the marble is blue? 
 How about white?
+
+37.5 % chance of a blue marble, and a 12.5% chance of a white marble.
 
 We can simulate this "drawing" with the `sample()` function.
 
@@ -101,6 +113,10 @@ prop.table(counts)
 ```
 
 How close is this value to the "true" probability?
+
+Quite close to the proportion of the actual probability. This is the law of 
+large numbers as the sample size gets larger, the probabilities become more and 
+more accurate.
 
 **To summarize our process:**
 
