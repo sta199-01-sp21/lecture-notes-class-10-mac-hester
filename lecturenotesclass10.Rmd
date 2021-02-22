@@ -174,16 +174,30 @@ Perform a simulation to compute this empirical probability.
 Write down your guess to the answer before you calculate it.
 
 ```{r simulate_rolls}
-
+roll_results <- tibble(
+die_1 = replicate(n = 10000, expr = sample(1:6, size =1)),
+die_2 = replicate(n = 10000, expr = sample(1:6, size = 1)))
 ```
 
-```{r identify_events}
+'replicate' is for the rolling of the dice so slightly
+different than example. 
 
+```{r identify_events}
+roll_results <- roll_results %>% 
+mutate(option_1 = ((die_1)^2 == die_2), 
+        option_2 = abs(die_1 - die_2) == 4) %>%
+print()
 ```
 
 ```{r summarize_rolls}
-
+roll_results %>% 
+  count(option_1, option_2) %>%
+  mutate(probability = n / sum(n))
 ```
+
+The abosolute value of the difference of the two numbers being 4 is more likely
+than the square of dice 1 being equal to dice 2. The former happens 11% of the 
+time and the latter happens only ~ 5%. 
 
 ## Additional Resources-please look at before Weds.
 
